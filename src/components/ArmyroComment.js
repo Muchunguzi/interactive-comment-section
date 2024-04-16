@@ -8,6 +8,9 @@ import { useState } from 'react';
 import { MobilePart } from './MobilePart';
 
 const ArmyroComment = () => {
+
+    
+
     const [replys, setReply] = useState([]);
     
     const openReply = () => {
