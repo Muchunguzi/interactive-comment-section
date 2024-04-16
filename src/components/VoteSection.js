@@ -1,13 +1,35 @@
 import {FaPlus} from 'react-icons/fa';
 import {FaMinus} from 'react-icons/fa';
+import { useState } from 'react';
 
-const VoteSection = () => {
+const VoteSection = ({count}) => {
+
+
+
+    const increaseVote =() => {
+
+        console.log(count)
+        count = count;
+        
+        if(count >= 0){
+             
+            count++;
+            
+
+        }
+    }
+
+    const decreaseVote=() => {
+
+    }
+
+
     return(
         <div className='voteSection'>
            <div className="voteBoard">
-            <FaPlus className='faPlus'/>
-            <span className='vote'>12</span>
-            <FaMinus className='faMinus'/>
+            <FaPlus onClick={increaseVote} className='faPlus'/>
+            <span id='voteCount' className='vote'>{count}</span>
+            <FaMinus onClick={decreaseVote} className='faMinus'/>
            </div>
         </div>
     )
