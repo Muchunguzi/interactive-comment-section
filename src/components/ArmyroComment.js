@@ -9,7 +9,7 @@ import { MobilePart } from './MobilePart';
 
 const ArmyroComment = () => {
 
-    const [count, setCount] = useState(12);
+    
 
     const [replys, setReply] = useState([]);
     
@@ -31,7 +31,7 @@ const ArmyroComment = () => {
       <>
        
        <div className="comment">
-      <VoteSection count={count} className="voteSection_desktop" />
+      <VoteSection className="voteSection_desktop" />
       
       <div className='middle_comment_part'>
 
