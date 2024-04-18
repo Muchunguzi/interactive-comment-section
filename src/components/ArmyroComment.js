@@ -13,6 +13,38 @@ const ArmyroComment = () => {
 
     const [replys, setReply] = useState([]);
     
+    const [count, setCount] = useState(12);
+
+   
+    //increase function to increment vote every time increment sign is clicked
+    const increaseVote =() => {
+     
+        if(count >= 0 && count < 99){
+            
+            setCount(
+
+                prevCount => prevCount + 1
+
+            )
+              }
+    }
+
+
+
+    //dercrease function to decrease the vote every time decrease sign is clicked
+    const decreaseVote=() => {
+
+        if(count > 0 && count <=99 ){
+            
+            setCount(
+
+                prevCount => prevCount - 1
+
+            )
+        }
+    }
+
+
     const openReply = () => {
         document.getElementById('replyForm2').style.display='initial';
     }
@@ -31,7 +63,7 @@ const ArmyroComment = () => {
       <>
        
        <div className="comment">
-      <VoteSection className="voteSection_desktop" />
+      <VoteSection count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} className="voteSection_desktop" />
       
       <div className='middle_comment_part'>
 
@@ -50,7 +82,7 @@ const ArmyroComment = () => {
 
            
 
-          <MobilePart openReply={openReply} />     
+          <MobilePart count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} openReply={openReply} />     
           
 
       </div>

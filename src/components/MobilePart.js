@@ -9,13 +9,13 @@ import { VoteSectionMobile} from "./VoteSectionMobile";
 import { ReplyPartMobile } from './ReplyPartMobile';
 
 
-const MobilePart = ({openReply, style}) => {
+const MobilePart = ({openReply, style, count , increaseVote , decreaseVote}) => {
     return (
         <div style={style} className="mobiles">
      
           
              <div className="voteSection_mobile_part">
-             <VoteSectionMobile />
+             <VoteSectionMobile count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} />
              </div>
 
              <span className="voteSection_mobile_part"></span>

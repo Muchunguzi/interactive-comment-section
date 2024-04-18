@@ -24,12 +24,43 @@ const RamsesReply = ( ) => {
      document.getElementById('RamReplyForm').style.display = 'initial';
     }
 
+    const [count, setCount] = useState(12);
+
+   
+    //increase function to increment vote every time increment sign is clicked
+    const increaseVote =() => {
+     
+        if(count >= 0 && count < 99){
+            
+            setCount(
+
+                prevCount => prevCount + 1
+
+            )
+              }
+    }
+
+
+
+    //dercrease function to decrease the vote every time decrease sign is clicked
+    const decreaseVote=() => {
+
+        if(count > 0 && count <=99 ){
+            
+            setCount(
+
+                prevCount => prevCount - 1
+
+            )
+        }
+    }
+
 
     return(
       <>
        
        <div className='reply'>
-           <VoteSection />
+           <VoteSection count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} />
         
         <div className='middle_comment_part'>
 
@@ -48,7 +79,7 @@ const RamsesReply = ( ) => {
             </p>
 
 
-            <MobilePart openReply={openReply} />  
+            <MobilePart count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} openReply={openReply} />  
 
         </div>
         

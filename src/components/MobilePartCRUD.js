@@ -10,13 +10,13 @@
 import { VoteSectionMobile } from "./VoteSectionMobile";
 import {FaTrash , FaEdit} from "react-icons/fa"
 
-const MobilePartCRUD = ({style}) => {
+const MobilePartCRUD = ({style , count , increaseVote , decreaseVote}) => {
     return (
         <div style={style} className="mobiles_CRUD">
               
             
               <div className="voteSection_mobile_part">
-             <VoteSectionMobile />
+             <VoteSectionMobile count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} />
              </div>
 
              <span className="voteSection_mobile_part"></span>
