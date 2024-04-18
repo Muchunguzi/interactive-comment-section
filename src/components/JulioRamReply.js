@@ -14,9 +14,41 @@ const style = {
 
 const [timeAgo, setTimeAgo] = useState('');
 
+const [count, setCount] = useState(12);
+
+   
+//increase function to increment vote every time increment sign is clicked
+const increaseVote =() => {
+ 
+    if(count >= 0 && count < 99){
+        
+        setCount(
+
+            prevCount => prevCount + 1
+
+        )
+          }
+}
+
+
+
+//dercrease function to decrease the vote every time decrease sign is clicked
+const decreaseVote=() => {
+
+    if(count > 0 && count <=99 ){
+        
+        setCount(
+
+            prevCount => prevCount - 1
+
+        )
+    }
+}
+
+
     return (
         <div className="reply">
-        <VoteSection />
+        <VoteSection count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} />
         
         <div className='middle_comment_part'>
 
@@ -36,7 +68,7 @@ const [timeAgo, setTimeAgo] = useState('');
                 framework.But the fundamentals are what stay constant.
             </p>
 
-            <MobilePartCRUD style={style} />
+            <MobilePartCRUD count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} style={style} />
 
         </div>
         

@@ -208,6 +208,7 @@ div.mobiles{
 
   .voteSection_mobile{
     display: initial;
+    cursor: pointer;
   }
 
   .mobile_part{
