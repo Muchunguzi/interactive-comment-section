@@ -7,6 +7,7 @@ import { MobilePartCRUD } from './MobilePartCRUD';
 const Comment = ({comment}) => {
     
     const [timeAgo , setTimeAgo] = useState(' ');
+    const [deleteModal, setDeleteModal] = useState(false);
     
     const mobileStyles = {
 
@@ -59,6 +60,16 @@ const Comment = ({comment}) => {
         }
     }
 
+    const denyDelete = () => {
+
+         setDeleteModal(false)
+         console.log(comment.id);
+    } 
+
+    const confirmDelete = () => {
+     let deleteID = comment.id;
+     console.log(deleteID);
+    }
 
 
     return (
@@ -88,10 +99,26 @@ const Comment = ({comment}) => {
         
         
         <div style={{display:'flex', flexDirection:'row'}}>
-        <button className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
-        <FaTrash  style={{color: 'red', fontSize: '54', marginRight: '2'}} />
+        <button  onClick={() => setDeleteModal(true)}  className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
+        <FaTrash   style={{color: 'red', fontSize: '54', marginRight: '2'}} />
         Delete
         </button>
+        {deleteModal && (
+            
+            <div className='deleteModal'>
+
+                <div className='deleteModal-content'>
+                <h2>Delete Comment</h2>
+                <p>Are you sure you want to delete this comment? This will remove the comment and it can't be undone.</p>
+                <div>
+                    <button className='cancelButton' onClick={denyDelete} >NO,CANCEL</button>
+                    <button className='deleteButton' onClick={confirmDelete}>YES,DELETE</button>
+                </div>
+                </div>
+                  
+
+            </div>
+        )}
         
         <button className='crudDesktop' style={{backgroundColor: 'white', color: 'black', marginTop: '1%'}}>
         <FaEdit style={{color: 'green' , display: 'inline'}} />
