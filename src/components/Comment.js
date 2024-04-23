@@ -8,6 +8,7 @@ const Comment = ({comment}) => {
     
     const [timeAgo , setTimeAgo] = useState(' ');
     const [deleteModal, setDeleteModal] = useState(false);
+    const deleteID = comment.id ;
     
     const mobileStyles = {
 
@@ -67,7 +68,6 @@ const Comment = ({comment}) => {
     } 
 
     const confirmDelete = () => {
-     let deleteID = comment.id;
      console.log(deleteID);
     }
 

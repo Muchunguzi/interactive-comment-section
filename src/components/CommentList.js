@@ -11,7 +11,7 @@ return (
     < ArmyroComment />
     < MasBlaComment />
     {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
-    
+    {console.log(comments)}
   </div>
 );
 
