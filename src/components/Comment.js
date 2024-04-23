@@ -8,8 +8,8 @@ const Comment = ({comment}) => {
     
     const [timeAgo , setTimeAgo] = useState(' ');
     const [deleteModal, setDeleteModal] = useState(false);
-    const deleteID = comment.id ;
-    
+    const deleteID = comment.id;
+  
     const mobileStyles = {
 
         marginTop : '5%'
@@ -134,3 +134,4 @@ const Comment = ({comment}) => {
 
 
 export {Comment};
+
