@@ -4,11 +4,26 @@ import { useEffect, useState } from 'react';
 import moment from 'moment'
 import { MobilePartCRUD } from './MobilePartCRUD';
 
-const Comment = ({comment}) => {
+const Comment = ({comment , onDelete}) => {
     
     const [timeAgo , setTimeAgo] = useState(' ');
-    const [deleteModal, setDeleteModal] = useState(false);
-    const deleteID = comment.id;
+    const [deleteModal , setDeleteModal] = useState(false);
+    const deleteID = comment.id;  // Here I absorb and keep the comments id
+                                  // so as to use it later-on to update the state
+                                  // of the comments such as delete. 
+
+    const denyDelete = () => {
+
+        setDeleteModal(false)
+        console.log(comment.id);
+    } 
+    
+    const confirmDelete = () => {
+      console.log(deleteID);
+      onDelete(deleteID);
+    }
+    
+   
   
     const mobileStyles = {
 
@@ -61,15 +76,7 @@ const Comment = ({comment}) => {
         }
     }
 
-    const denyDelete = () => {
 
-         setDeleteModal(false)
-         console.log(comment.id);
-    } 
-
-    const confirmDelete = () => {
-     console.log(deleteID);
-    }
 
 
     return (
@@ -109,7 +116,9 @@ const Comment = ({comment}) => {
 
                 <div className='deleteModal-content'>
                 <h2>Delete Comment</h2>
-                <p>Are you sure you want to delete this comment? This will remove the comment and it can't be undone.</p>
+                <p>Are you sure you want to delete this < br />
+                  comment? This will remove the comment < br />
+                  and it can't be undone.</p>
                 <div>
                     <button className='cancelButton' onClick={denyDelete} >NO,CANCEL</button>
                     <button className='deleteButton' onClick={confirmDelete}>YES,DELETE</button>

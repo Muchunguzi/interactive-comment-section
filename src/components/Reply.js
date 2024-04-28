@@ -90,7 +90,7 @@ const Reply = ({reply}) => {
         
         <div style={{display:'flex', flexDirection:'row'}}>
         <button className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
-        <FaTrash  style={{color: 'red', fontSize: '54', marginRight: '2'}} />
+        <FaTrash  style={{color: 'red', marginRight: '2'}} />
         Delete
         </button>
         
