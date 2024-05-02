@@ -4,10 +4,46 @@ import {FaReply , FaTrash , FaEdit} from 'react-icons/fa';
 import moment from 'moment';
 import { MobilePartCRUD } from './MobilePartCRUD';
 
-const RamsesReplies = ({reply}) => {
+const RamsesReplies = ({reply , onDelete}) => {
 
     const [timeAgo , setTimeAgo] = useState('');
+    const [deleteModal , setDeleteModal] = useState(false);
+    const deleteID = reply.id;
+    
+    useEffect(() => {
 
+        const updateTime = () => {
+   
+             const time = moment(reply.timeStamp).fromNow();
+             setTimeAgo(time);
+   
+        }
+
+        updateTime();
+
+        const interval = setInterval(updateTime, 60000);
+   
+        return () => clearInterval(interval)
+   
+     }, [reply.timeStamp]) 
+
+     const HandleDelete = () => {
+        
+     }
+
+     
+    const denyDelete = () => {
+
+        setDeleteModal(false)
+        console.log(reply.id);
+    } 
+    
+    const confirmDelete = () => {
+      console.log(deleteID);
+      onDelete(deleteID);
+    }
+    
+   
 
 
     return (
@@ -37,10 +73,28 @@ const RamsesReplies = ({reply}) => {
         
         
         <div style={{display:'flex', flexDirection:'row'}}>
-        <button className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
+        <button onClick={HandleDelete} className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
         <FaTrash  style={{color: 'red', fontSize: '54', marginRight: '2'}} />
         Delete
         </button>
+        {deleteModal && (
+            
+            <div className='deleteModal'>
+
+                <div className='deleteModal-content'>
+                <h2>Delete Comment</h2>
+                <p>Are you sure you want to delete this < br />
+                  comment? This will remove the comment < br />
+                  and it can't be undone.</p>
+                <div>
+                    <button className='cancelButton' onClick={denyDelete} >NO,CANCEL</button>
+                    <button className='deleteButton' onClick={confirmDelete}>YES,DELETE</button>
+                </div>
+                </div>
+                  
+
+            </div>
+        )}
         
         <button className="crudDesktop" style={{backgroundColor: 'white', color: 'black', marginTop: '1%'}}>
         <FaEdit style={{color: 'green' , display: 'inline'}} />

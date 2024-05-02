@@ -7,9 +7,16 @@ import {useState} from 'react';
 import { MobilePart } from './MobilePart';
 
 
+
 const RamsesReply = ( ) => {
 
     const [RamReplys , setRamReplys] = useState([])
+
+    const onDelete = (id) => {
+        setRamReplys(RamReplys.filter(reply => reply.id !== id));
+        
+       }
+
     
     const addReply = (reply) => {
       setRamReplys([
@@ -25,6 +32,8 @@ const RamsesReply = ( ) => {
     }
 
     const [count, setCount] = useState(12);
+
+
 
    
     //increase function to increment vote every time increment sign is clicked
@@ -93,7 +102,7 @@ const RamsesReply = ( ) => {
     </div>
 
     <RamseReplyForm addReply={addReply} />
-    <RamReplyList RamReplys={RamReplys} />
+    <RamReplyList RamReplys={RamReplys} onDelete={onDelete} />
    
       
       </>
