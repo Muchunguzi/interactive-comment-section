@@ -58,6 +58,11 @@ const ArmyroComment = () => {
         ]);
     }
 
+    const onDelete = (id) => {
+        setReply(replys.filter(reply => reply.id !== id));
+        
+       }
+
     return(
 
       <>
@@ -100,7 +105,7 @@ const ArmyroComment = () => {
      </div>
 
      <ReplyForm2 addReply={addReply} />
-     <ReplyList2 replys = {replys} />
+     <ReplyList2 onDelete={onDelete} replys = {replys} />
 
       </>
       

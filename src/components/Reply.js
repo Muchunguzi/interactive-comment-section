@@ -4,7 +4,8 @@ import { FaReply , FaTrash, FaEdit } from 'react-icons/fa';
 import moment from 'moment';
 import { MobilePartCRUD } from './MobilePartCRUD';
 
-const Reply = ({reply}) => {
+
+const Reply = ({reply , onDelete}) => {
 
   const mobileStyles = {
          
@@ -13,6 +14,20 @@ const Reply = ({reply}) => {
   };
  
   const [timeAgo , setTimeAgo]  = useState('');
+  const [deleteModal , setDeleteModal] = useState(false);
+  const deleteID = reply.id;
+
+  const denyDelete = () => {
+
+    setDeleteModal(false)
+    console.log(reply.id);
+} 
+
+const confirmDelete = () => {
+  console.log(deleteID);
+  onDelete(deleteID);
+}
+
 
   useEffect(() => {
 
@@ -63,7 +78,6 @@ const Reply = ({reply}) => {
   }
 
 
-
   return (
     <div className='reply'>
            <VoteSection count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} />
@@ -89,10 +103,29 @@ const Reply = ({reply}) => {
         
         
         <div style={{display:'flex', flexDirection:'row'}}>
-        <button className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
+        <button onClick={() => setDeleteModal(true)}  className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
         <FaTrash  style={{color: 'red', marginRight: '2'}} />
         Delete
         </button>
+
+        {deleteModal && (
+            
+            <div className='deleteModal'>
+
+                <div className='deleteModal-content'>
+                <h2>Delete Reply</h2>
+                <p>Are you sure you want to delete this < br />
+                  reply? This will remove the reply < br />
+                  and it can't be undone.</p>
+                <div>
+                    <button className='cancelButton' onClick={denyDelete} >NO,CANCEL</button>
+                    <button className='deleteButton' onClick={confirmDelete}>YES,DELETE</button>
+                </div>
+                </div>
+                  
+
+            </div>
+        )}
         
         <button className="crudDesktop" style={{backgroundColor: 'white', color: 'black', marginTop: '1%'}}>
         <FaEdit style={{color: 'green' , display: 'inline'}} />
