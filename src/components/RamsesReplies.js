@@ -9,6 +9,7 @@ const RamsesReplies = ({reply , onDelete}) => {
     const [timeAgo , setTimeAgo] = useState('');
     const [deleteModal , setDeleteModal] = useState(false);
     const deleteID = reply.id;
+    const [count , setCount] = useState(12);
     
     useEffect(() => {
 
@@ -41,6 +42,34 @@ const RamsesReplies = ({reply , onDelete}) => {
     const confirmDelete = () => {
       console.log(deleteID);
       onDelete(deleteID);
+    } 
+
+     //increase function to increment vote every time increment sign is clicked
+     const increaseVote =() => {
+     
+        if(count >= 0 && count < 99){
+            
+            setCount(
+
+                prevCount => prevCount + 1
+
+            )
+              }
+    }
+
+
+
+    //dercrease function to decrease the vote every time decrease sign is clicked
+    const decreaseVote=() => {
+
+        if(count > 0 && count <=99 ){
+            
+            setCount(
+
+                prevCount => prevCount - 1
+
+            )
+        }
     }
     
    
@@ -48,7 +77,7 @@ const RamsesReplies = ({reply , onDelete}) => {
 
     return (
         <div className='reply'>
-                   <VoteSection />
+                   <VoteSection count={count} decreaseVote={decreaseVote} increaseVote={increaseVote} />
         
         <div className='middle_comment_part'>
 
@@ -65,7 +94,7 @@ const RamsesReplies = ({reply , onDelete}) => {
            
             <p><span style={{fontWeight:'bold'}}>{reply.initial}</span>{reply.text}</p>
 
-            <MobilePartCRUD />
+            <MobilePartCRUD count={count} decreaseVote={decreaseVote} increaseVote={increaseVote} />
         
         </div>
 
@@ -73,7 +102,7 @@ const RamsesReplies = ({reply , onDelete}) => {
         
         
         <div style={{display:'flex', flexDirection:'row'}}>
-        <button onClick={HandleDelete} className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
+        <button onClick={()=> {setDeleteModal(true)}} className='crudDesktop' style={{backgroundColor: 'white' , color: 'black', marginTop: '1%'}}>
         <FaTrash  style={{color: 'red', fontSize: '54', marginRight: '2'}} />
         Delete
         </button>
@@ -82,9 +111,9 @@ const RamsesReplies = ({reply , onDelete}) => {
             <div className='deleteModal'>
 
                 <div className='deleteModal-content'>
-                <h2>Delete Comment</h2>
+                <h2>Delete Reply</h2>
                 <p>Are you sure you want to delete this < br />
-                  comment? This will remove the comment < br />
+                  reply? This will remove the reply < br />
                   and it can't be undone.</p>
                 <div>
                     <button className='cancelButton' onClick={denyDelete} >NO,CANCEL</button>
