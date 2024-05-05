@@ -214,6 +214,16 @@ button.deleteButton{
    padding: 2%;
   
   }
+  .deleteModal{
+    align-items: center;
+    width: 100%;
+    height: 250vh;
+    padding-left: 2.5%;
+  }
+  .deleteModal-content{
+    width: 60%;
+    position: sticky;
+  }
   .form{
     height: 15vh;
   }

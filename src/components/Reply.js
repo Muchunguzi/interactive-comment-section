@@ -97,7 +97,8 @@ const confirmDelete = () => {
            
             <p><span style={{fontWeight:'bold'}}>{reply.initial}</span>{reply.text}</p>
             
-            <MobilePartCRUD count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} className="crudStyles" style={mobileStyles} />
+            <MobilePartCRUD count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} className="crudStyles" style={mobileStyles} 
+            onDelete={onDelete}/>
 
         </div>
         
