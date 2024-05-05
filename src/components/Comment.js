@@ -11,19 +11,6 @@ const Comment = ({comment , onDelete}) => {
     const deleteID = comment.id;  // Here I absorb and keep the comments id
                                   // so as to use it later-on to update the state
                                   // of the comments such as delete. 
-
-    const denyDelete = () => {
-
-        setDeleteModal(false)
-        console.log(comment.id);
-    } 
-    
-    const confirmDelete = () => {
-      console.log(deleteID);
-      onDelete(deleteID);
-    }
-    
-   
   
     const mobileStyles = {
 
@@ -76,6 +63,18 @@ const Comment = ({comment , onDelete}) => {
         }
     }
 
+    const denyDelete = () => {
+
+        setDeleteModal(false)
+        
+      } 
+    
+      const confirmDelete = () => {
+      console.log(deleteID);
+      onDelete(deleteID);
+      }
+    
+
 
 
 
@@ -99,7 +98,7 @@ const Comment = ({comment , onDelete}) => {
             <p>{comment.text}</p>
 
             <MobilePartCRUD count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} style={mobileStyles} 
-            />
+             />
 
 
         </div>
