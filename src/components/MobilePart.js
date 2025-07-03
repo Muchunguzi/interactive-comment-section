@@ -4,7 +4,7 @@
 //       MarginTon - the top margin part in the presented parent component
 //
 
-
+import React from "react";
 import { VoteSectionMobile} from "./VoteSectionMobile";
 import { ReplyPartMobile } from './ReplyPartMobile';
 

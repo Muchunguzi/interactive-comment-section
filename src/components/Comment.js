@@ -1,6 +1,6 @@
 import { FaTrash , FaEdit} from 'react-icons/fa';
 import { VoteSection } from './VoteSection';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment'
 import { MobilePartCRUD } from './MobilePartCRUD';
 

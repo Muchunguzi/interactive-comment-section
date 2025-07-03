@@ -3,7 +3,7 @@ import { FaReply } from "react-icons/fa";
 import { VoteSection } from "./VoteSection";
 import {RamReplyList} from "./RamReplyList";
 import {RamseReplyForm} from "./RamseReplyForm";
-import {useState} from 'react';
+import React , {useState} from 'react';
 import { MobilePart } from './MobilePart';
 
 

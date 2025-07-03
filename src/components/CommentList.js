@@ -1,3 +1,4 @@
+import React from 'react';
 import {Comment} from './Comment';
 import {ArmyroComment} from './ArmyroComment'; 
 import {MasBlaComment} from './MasBlaComment';

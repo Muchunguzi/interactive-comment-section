@@ -7,7 +7,7 @@
 
 
 
-import { useState } from "react";
+import React , { useState } from "react";
 import { VoteSectionMobile } from "./VoteSectionMobile";
 import {FaTrash , FaEdit} from "react-icons/fa"
 

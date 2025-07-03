@@ -4,7 +4,7 @@ import { FaReply } from 'react-icons/fa';
 import amyroImg from '../assets/images/image-amyrobson.png'
 import { ReplyForm2 } from './ReplyForm2';
 import { ReplyList2 } from './ReplyList2';
-import { useState } from 'react';
+import React,  { useState } from 'react';
 import { MobilePart } from './MobilePart';
 
 const ArmyroComment = () => {

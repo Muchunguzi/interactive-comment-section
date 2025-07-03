@@ -3,7 +3,7 @@ import { FaReply } from "react-icons/fa";
 import masBlaImg from '../assets/images/image-maxblagun.png'
 import { ReplyForm } from "./ReplyForm";
 import { ReplyList } from "./ReplyList";
-import { useState } from "react";
+import React , { useState } from "react";
 import { MobilePart } from "./MobilePart";
 
 

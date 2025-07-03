@@ -2,7 +2,7 @@ import { VoteSection } from './VoteSection';
 import juliosomo from '../assets/images/image-juliusomo.png'
 import { FaTrash, FaTrashAlt , FaEdit, FaReply } from 'react-icons/fa';
 import moment from 'moment';
-import { useState, useEffect } from 'react';
+import React ,  { useState, useEffect } from 'react';
 import { MobilePartCRUD } from './MobilePartCRUD';
 
 const JulioRamReply = () => {

@@ -1,6 +1,6 @@
 import {FaPlus} from 'react-icons/fa';
 import {FaMinus} from 'react-icons/fa';
-import { useState } from 'react';
+import React , { useState } from 'react';
 
 const VoteSectionMobile = ({count, decreaseVote, increaseVote}) => {
 

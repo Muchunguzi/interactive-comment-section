@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React,  {useState} from 'react';
 import {CommentList} from './components/CommentList';
 import { CommentForm } from './components/CommentForm';
 

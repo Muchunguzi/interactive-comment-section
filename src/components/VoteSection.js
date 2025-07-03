@@ -1,6 +1,7 @@
+import React from 'react';
 import {FaPlus} from 'react-icons/fa';
 import {FaMinus} from 'react-icons/fa';
-import { useState } from 'react';
+import  { useState } from 'react';
 
 const VoteSection = ({count, increaseVote, decreaseVote}) => {
 

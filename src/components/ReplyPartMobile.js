@@ -1,3 +1,4 @@
+import React from "react";
 import { FaReply } from "react-icons/fa";
 
 const ReplyPartMobile = ({openReply}) => {
