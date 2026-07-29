@@ -21,14 +21,15 @@ body{
 .comment{
   background-color: white;
   border-radius: 10px;
-  height: 120px;
+  min-height: 120px;
+  max-height: 210px;
   display: flex;
   flex-direction: row;
   padding: 10px;
   justify-content: space-between;
   margin: 10px auto 10px auto;
   width: 60%;
-
+ 
 }
 
 button{
@@ -115,6 +116,8 @@ div.mobiles{
  
   height: 100vh;
   margin-top: -20px;
+
+
 }
 
 .comment_upper_part{
@@ -143,7 +146,8 @@ div.mobiles{
 .reply{
   background-color: white;
   border-radius: 10px;
-  height: 120px;
+  min-height: 120px;
+  max-height: 210px;
   display: flex;
   
   padding: 10px;
