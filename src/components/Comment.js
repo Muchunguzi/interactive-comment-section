@@ -80,9 +80,10 @@ const Comment = ({comment , onDelete}) => {
 
     return (
        <div className="comment">
+      
         <VoteSection  count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} />
         
-        <div className='middle_comment_part'>
+        <div className='middle_comment_part' >
 
             <div className='comment_upper_part'>
             <img className='Dp' src={comment.profilePic} alt='comment_profile_picture' />
@@ -95,7 +96,7 @@ const Comment = ({comment , onDelete}) => {
             
             </div>
            
-            <p>{comment.text}</p>
+            <p style={{overflowWrap: "break-word", wordWrap: "break-word"}}>{comment.text}</p>
 
             <MobilePartCRUD count={count} increaseVote={increaseVote} decreaseVote={decreaseVote} style={mobileStyles} 
              />
